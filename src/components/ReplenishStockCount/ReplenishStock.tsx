@@ -12,6 +12,7 @@ import StockCountSummary from "../StockCountSummary";
 import Loader from "../Loader";
 import { Product } from "../../types/Product";
 import { displayErrorFromServer } from "../../utils/errorHandlingUtils";
+import { StockCountType } from "../../enums/stockCountType";
 
 const replenishLocalStorageKey = "REPLENISH";
 
@@ -77,6 +78,7 @@ export default function Home() {
             deviceId: p.deviceId,
             salesAreaId: 1,
             product: p,
+            stockCountType: StockCountType.Replenishment
           };
         });
 
