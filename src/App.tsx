@@ -1,25 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Layout from "./components/Layout";
+import StockCount from "./components/StockCount/StockCount";
+import ReplenishStock from "./components/ReplenishStockCount/ReplenishStock";
+import Wastage from "./components/Wastage/Wastage";
+import MenuOptions from "./components/MenuOptions";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout title="Lite Stock App">
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/LiteStockManagement"
+          element={
+            <Layout title="Lite Stock App">
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/LiteStockManagement/:id"
+          element={
+            <Layout title="Lite Stock App">
+              <MenuOptions />
+            </Layout>
+          }
+        />
+        <Route
+          path="/LiteStockManagement/:id/StockCount"
+          element={
+            <Layout title="Stock Count">
+              <StockCount />
+            </Layout>
+          }
+        />
+        <Route
+          path="/LiteStockManagement/:id/ReplenishStock"
+          element={
+            <Layout title="Replenish Stock">
+              <ReplenishStock />
+            </Layout>
+          }
+        />
+        <Route
+          path="/LiteStockManagement/:id/Wastage"
+          element={
+            <Layout title="Wastage Count">
+              <Wastage />
+            </Layout>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
