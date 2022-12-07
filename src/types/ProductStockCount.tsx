@@ -8,4 +8,5 @@ export interface ProductStockCount {
   product?: Product;
   created?: Date;
   id?: number;
+  stockCountType?: number;
 }

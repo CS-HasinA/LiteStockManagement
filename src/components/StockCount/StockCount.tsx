@@ -12,6 +12,7 @@ import StickyButton from "../StickyButton";
 import StockCountSummary from "../StockCountSummary";
 import { postStockcount } from "../../apiRequests/StockCount";
 import { displayErrorFromServer } from "../../utils/errorHandlingUtils";
+import { StockCountType } from "../../enums/stockCountType";
 
 const localStorageKey = "STOCKCOUNT";
 
@@ -137,6 +138,7 @@ export default function StockCount() {
           deviceId: p.deviceId,
           salesAreaId: 1,
           product: p,
+          stockCountType: StockCountType.StockCount
         };
       });
 
